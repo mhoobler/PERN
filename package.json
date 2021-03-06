@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build-server && yarn build-client && yarn start-production",
-    "build-server": "cd server && tsc",
-    "build-client": "cd client && yarn build",
+    "build-server": "cd server && yarn install && tsc",
+    "build-client": "cd client && yarn install && yarn build",
     "start-production": "cd server && cd dist && node index.js",
     "dev": "concurrently -k \"cd server && nodemon index.ts \" \" cd client && yarn start \" "
   }
