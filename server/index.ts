@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-const PORT = process.env.PORT || 3001;
+const PORT = parseInt(process.env.PORT) ||  3001;
 const app = express();
 
 if(process.env.NODE_ENV === 'production'){
@@ -20,6 +20,6 @@ if(process.env.NODE_ENV === 'production'){
   });
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('server listening');
 });
