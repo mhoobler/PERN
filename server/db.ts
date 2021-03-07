@@ -1,7 +1,7 @@
 import { Client } from 'pg';
 
 export default new Client({
-  connectionString: process.env.PGRES_URL,
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
