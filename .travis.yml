@@ -6,7 +6,6 @@ node_js:
 install: 
   - yarn install --frozen-lockfile
   - yarn build-server
-  - yarn build-client
 
 script: 
-  - yarn start
+  - yarn test
