@@ -3,7 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 
 import InputTodo from './';
 
-descript('Testing InputTodo Component', () => {
+describe('Testing InputTodo Component', () => {
   it('should render without crashing', () => {
     render(<InputTodo />);
   });
@@ -15,7 +15,7 @@ descript('Testing InputTodo Component', () => {
     const tagsInput = screen.getByLabelText('Tags:');
 
     fireEvent.change(nameInput, {target: {value: 'nameTest'} });
-    fireEvent.change(descriptionInput, {target: value: 'descriptionTest'} });
+    fireEvent.change(descriptionInput, {target: {value: 'descriptionTest'} });
     fireEvent.change(tagsInput, {target: {value: 'tags, test'} });
 
     expect(nameInput.value).toBe('nameTest');
