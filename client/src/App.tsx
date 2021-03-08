@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import axios from 'axios';
+import API from './utils/API';
 
 const App: React.FC = () => {
 
-  axios.get('/_')
+  API.test()
     .then( res => console.log(res))
     .catch( err => console.log(err));
 
