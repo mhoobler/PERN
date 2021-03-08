@@ -1,0 +1,12 @@
+language: nodejs
+cache: npm
+node_js:
+  - "stable"
+
+install: 
+  - yarn ci
+  - yarn build-server
+  - yarn build-client
+
+script: 
+  - yarn start
