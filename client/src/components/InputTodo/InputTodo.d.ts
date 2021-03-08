@@ -1,4 +1,4 @@
-export type InputTodo {
+export type InputTodo = {
   name: string
   description?: string
   tags?: string[]
