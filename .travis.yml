@@ -4,7 +4,7 @@ node_js:
   - "stable"
 
 install: 
-  - yarn ci
+  - yarn install --frozen-lockfile
   - yarn build-server
   - yarn build-client
 
