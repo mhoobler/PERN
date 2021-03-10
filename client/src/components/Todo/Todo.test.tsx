@@ -6,7 +6,7 @@ import { screen } from '@testing-library/react';
 //import { fireEvent } from '@testing-library/react';
 
 
-import Todo from './Todo'
+import Todo from './'
 import {TestTodoType} from './Todo.d';
 
 const date = new Date()

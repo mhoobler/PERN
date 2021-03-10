@@ -4,7 +4,7 @@ import API from './API';
 jest.mock('axios');
 
 
-it('test', async () => {
+it('This route should retrieve Todo data', async () => {
   axios.get.mockResolvedValue({
     data: [
       {
@@ -18,6 +18,6 @@ it('test', async () => {
     ]
   })
   
-  let result = await API.test();
+  let result = await API.getAllTodos();
   expect(result.data[0].name).toBe('axiosMock');
 });

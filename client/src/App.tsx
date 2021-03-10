@@ -1,29 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
+
+import Todo from './components/Todo';
+import {TodoType} from './components/Todo/Todo.d'
+import InputTodo from './components/InputTodo';
 
 import API from './utils/API';
 
 const App: React.FC = () => {
+  const [todos, setTodos] = useState<TodoType[]>([]);
+  
 
-  API.test()
-    .then( res => console.log(res))
+  API.getAllTodos()
+    .then( res => {
+      console.log(res)
+      const rows: TodoType[] = res.data.rows;
+      setTodos(rows);
+    })
     .catch( err => console.log(err));
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputTodo />
+      <div className='todo-container'>
+        {todos.map( (e: TodoType) => {
+          return <Todo todo={e} key={e.todo_id}/>
+        })}
+      </div>
     </div>
   );
 }

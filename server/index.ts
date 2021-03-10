@@ -1,10 +1,13 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
 const PORT = parseInt(process.env.PORT) ||  3001;
 const app = express();
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static(path.resolve(__dirname, "../../client/build")));
+} else {
+  dotenv.config();
 }
 
 import apiRoutes from './routes/api';
