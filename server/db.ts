@@ -1,8 +1,8 @@
-import { Client } from 'pg';
+import { Client } from "pg";
 
 export default new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });

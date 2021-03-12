@@ -1,14 +1,7 @@
-export type TodoType = {
-  todo_id: number,
-  name: string,
-  description?: string,
-  tags?: string[],
-  added: Date,
-  completed?: Date
-}
+import { InputTodoType } from "../InputTodo/InputTodo.d";
 
-export interface TestTodoType extends TodoType {
-  description: string,
-  tags: string[],
-  completed: Date
+export interface TodoType extends InputTodoType {
+  todo_id: number;
+  added: Date;
+  completed: Date;
 }

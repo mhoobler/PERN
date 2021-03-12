@@ -8,6 +8,9 @@
     "build-client": "cd client && yarn install && yarn build",
     "start-production": "cd server && cd dist && node index.js",
     "dev": "concurrently -k \"cd server && nodemon index.ts \" \" cd client && yarn start \" ",
-    "test" : "cd client && yarn test"
+    "test": "cd client && yarn test"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }

@@ -3,10 +3,10 @@ cache: npm
 node_js:
   - "stable"
 
-install: 
+install:
   - yarn install --frozen-lockfile
   - yarn build-server
   - yarn build-client
 
-script: 
+script:
   - yarn test
