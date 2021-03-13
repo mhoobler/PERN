@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Todo from "./components/Todo";
-import { TodoType } from "./components/Todo/Todo.d";
 import InputTodo from "./components/InputTodo";
 import Filter from "./components/Filter";
 
@@ -27,6 +26,7 @@ const App: React.FC = () => {
       <Filter />
       <div className="todo-container">
         {todos.map((e: TodoType) => {
+          if (!e.name) console.log(e);
           return <Todo todo={e} key={e.todo_id} />;
         })}
       </div>

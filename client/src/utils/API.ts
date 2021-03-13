@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { NewTodoType } from "../components/InputTodo/InputTodo.d";
-
 const API = {
   test: async () => await axios.get("/_"),
   getAllTodos: async () => await axios.get("/_todos"),

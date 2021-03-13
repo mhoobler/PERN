@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 
-import {NewTodoType} from './InputTodo.d';
-
 import API from '../../utils/API';
 
 type InputsTodoType = {

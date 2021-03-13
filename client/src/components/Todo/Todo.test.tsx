@@ -6,11 +6,10 @@ import { screen } from "@testing-library/react";
 //import { fireEvent } from '@testing-library/react';
 
 import Todo from "./";
-import { TestTodoType } from "./Todo.d";
 
 const date = new Date();
 
-const testTodo: TestTodoType = {
+const testTodo: TodoType = {
   todo_id: 1,
   name: "testing",
   description: "test description",
