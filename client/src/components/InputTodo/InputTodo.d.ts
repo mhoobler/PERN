@@ -1,5 +1,5 @@
-export type InputTodoType = {
+export type NewTodoType = {
   name: string;
-  description?: string;
-  tags?: string[];
+  description: string;
+  tags: string[];
 };
