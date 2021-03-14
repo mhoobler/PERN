@@ -11,18 +11,18 @@ interface TodoType extends NewTodoType {
 }
 
 type FilterInputs = {
-  name: string,
-  description: string,
-  tags: string
-}
+  name: string;
+  description: string;
+  tags: string;
+};
 
 interface FilterObject extends FilterInputs {
   id: number;
-  tags: string[]
+  tags: string[];
 }
 
 type FilterQuery = {
   name: string;
   description: string;
-  tags: string[]
-}
+  tags: string[];
+};

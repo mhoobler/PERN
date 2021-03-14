@@ -1,46 +1,49 @@
-const AppReducer = (state: AppContextType, action: ActionType): AppContextType => {
-  switch(action.type) {
-    
-    case('ADD_FILTER'): {
+const AppReducer = (
+  state: AppContextType,
+  action: ActionType
+): AppContextType => {
+  switch (action.type) {
+    case "ADD_FILTER": {
       const id = Object.keys(state.filters).length;
       const newFilter = {
         id: id,
-        name: '',
-        description: '',
-        tags: []
+        name: "",
+        description: "",
+        tags: [],
       };
 
       return {
         ...state,
         filters: {
           ...state.filters,
-          [id]: newFilter
-        }
-      }
+          [id]: newFilter,
+        },
+      };
     }
 
-    case('EDIT_FILTER'): {
+    case "EDIT_FILTER": {
       return {
         ...state,
         filters: {
           ...state.filters,
-          [action.payload.id]: action.payload
-        }
-      }
+          [action.payload.id]: action.payload,
+        },
+      };
     }
 
-    case('REMOVE_FILTER'): {
+    case "REMOVE_FILTER": {
       const newFilters = state.filters;
       delete newFilters[action.payload];
 
       return {
         ...state,
-        filters: newFilters
-      }
+        filters: newFilters,
+      };
     }
 
-    default: return state
+    default:
+      return state;
   }
 };
 
-export default AppReducer
+export default AppReducer;

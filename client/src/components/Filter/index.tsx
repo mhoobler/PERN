@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 type Props = {
-  id: number
-}
+  id: number;
+};
 
-const Filter: React.FC<Props> = ({id}) => {
+const Filter: React.FC<Props> = ({ id }) => {
   const [inputs, setInputs] = useState<FilterInputs>({
     name: "",
     description: "",
-    tags: ""
+    tags: "",
   });
 
   const handleChange = (evt: any) => {

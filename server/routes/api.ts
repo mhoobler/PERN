@@ -1,8 +1,4 @@
-import { 
-  Express,
-  Request as Req,
-  Response as Res
-} from "express";
+import { Express, Request as Req, Response as Res } from "express";
 
 import db from "../db";
 
@@ -26,10 +22,10 @@ const apiRoutes = (app: Express) => {
 
   app.post("/_todos", async (req: Req, res: Res) => {
     try {
-      const {name, description, tags} = req.body;
+      const { name, description, tags } = req.body;
 
       const newTodo = await db.query(
-        'INSERT INTO todo (name, description, tags) VALUES($1, $2, $3) RETURNING *',
+        "INSERT INTO todo (name, description, tags) VALUES($1, $2, $3) RETURNING *",
         [name, description, tags]
       );
 

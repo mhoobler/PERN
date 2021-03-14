@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-import bodyParser from 'body-parser'
+import bodyParser from "body-parser";
 const PORT = parseInt(process.env.PORT) || 3001;
 const app = express();
 
