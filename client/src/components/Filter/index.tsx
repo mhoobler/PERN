@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
-type Inputs = {
-  tags: string;
+type Props = {
+  id: number;
 };
 
-const Filter: React.FC = () => {
-  const [inputs, setInputs] = useState<Inputs>({
+const Filter: React.FC<Props> = ({ id }) => {
+  const [inputs, setInputs] = useState<FilterInputs>({
+    name: "",
+    description: "",
     tags: "",
   });
 
@@ -19,6 +21,22 @@ const Filter: React.FC = () => {
 
   return (
     <div>
+      <input
+        type="text"
+        name="name"
+        placeholder="TagName"
+        data-testid="filter-name"
+        value={inputs.name}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="description"
+        placeholder="Tag Description"
+        data-testid="filter-description"
+        value={inputs.description}
+        onChange={handleChange}
+      />
       <input
         type="text"
         name="tags"

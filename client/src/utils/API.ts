@@ -1,11 +1,11 @@
 import axios from "axios";
 
-import { InputTodoType } from "../components/InputTodo/InputTodo.d";
-
 const API = {
   test: async () => await axios.get("/_"),
   getAllTodos: async () => await axios.get("/_todos"),
-  postNewTodo: async (data: InputTodoType) => await axios.post("todos", data),
+  getFilterTodos: async (filter: FilterQuery) =>
+    await axios.get("/_todos", { params: { ...filter } }),
+  postNewTodo: async (data: NewTodoType) => await axios.post("/_todos", data),
 };
 
 export default API;
