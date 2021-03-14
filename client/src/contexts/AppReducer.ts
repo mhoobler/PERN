@@ -1,4 +1,4 @@
-const AppReducer = (state: AppContextType, action: ActionType) => {
+const AppReducer = (state: AppContextType, action: ActionType): AppContextType => {
   switch(action.type) {
     
     case('ADD_FILTER'): {

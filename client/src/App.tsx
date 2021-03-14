@@ -5,6 +5,8 @@ import Todo from "./components/Todo";
 import InputTodo from "./components/InputTodo";
 import Filter from "./components/Filter";
 
+import {AppProvider} from './contexts/AppContext';
+
 import API from "./utils/API";
 
 const App: React.FC = () => {
@@ -22,6 +24,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <AppProvider>
       <InputTodo />
       <Filter />
       <div className="todo-container">
@@ -30,6 +33,7 @@ const App: React.FC = () => {
           return <Todo todo={e} key={e.todo_id} />;
         })}
       </div>
+      </AppProvider>
     </div>
   );
 };

@@ -1,15 +1,33 @@
-import {FC, createContext, useReducer} from "react";
+import {FC, createContext, useReducer, Dispatch} from "react";
+import AppReducer from './AppReducer';
+
+const initState = {
+  filters: {
+    0: {
+      id: 0,
+      name: '',
+      description: '',
+      tags: []
+    }
+  },
+  todoContainers: []
+};
 
 //Context factory?
-const AppContext = createContext<AppContextType>({
-  filters: [],
-  todoContainers: []
+const AppContext = createContext<{
+  state: AppContextType,
+  dispatch: Dispatch<ActionType>
+}>({
+  state: initState,
+  dispatch: () => {}
 });
 const {Provider} = AppContext;
 
 const AppProvider: FC = ({ children }) => {
 
-  return <Provider value={{ filters: [], todoContainers: [] }}>{children}</Provider>
+  const [state, dispatch] = useReducer(AppReducer, initState);
+
+  return <Provider value={{ state, dispatch }}>{children}</Provider>
 }
 
 export {AppProvider, AppContext};

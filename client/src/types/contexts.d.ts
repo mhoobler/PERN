@@ -1,6 +1,6 @@
 interface AppContextType {
   filters: {
-    [key: number]: FilterObject[];
+    [key: number]: FilterObject;
   }
   todoContainers: TodoType[][];
 }
