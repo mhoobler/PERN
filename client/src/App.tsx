@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import "./App.css";
 
-import Todo from "./components/Todo";
+import FiltersContainer from './containers/FiltersContainer';
+import TodosContainer from './containers/TodosContainer';
 import InputTodo from "./components/InputTodo";
-import Filter from "./components/Filter";
 
-import {AppProvider} from './contexts/AppContext';
-
-import API from "./utils/API";
+import {AppContext} from './contexts/AppContext';
 
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<TodoType[]>([]);
+  const {state} = useContext(AppContext);
 
-  useEffect(() => {
-    API.getAllTodos()
-      .then((res) => {
-        console.log(res);
-        const rows: TodoType[] = res.data.rows;
-        setTodos(rows);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  const {filters, todoContainers} = state;
 
   return (
     <div className="App">
-      <AppProvider>
       <InputTodo />
-      <Filter />
-      <div className="todo-container">
-        {todos.map((e: TodoType) => {
-          if (!e.name) console.log(e);
-          return <Todo todo={e} key={e.todo_id} />;
-        })}
-      </div>
-      </AppProvider>
+      <FiltersContainer filters={filters} />
+      {todoContainers.map( (e: TodoType[], i: number) => {
+        return <TodosContainer todos={e} key={i} />
+      })}
     </div>
   );
 };

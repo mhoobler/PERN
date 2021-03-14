@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-type Inputs = {
-  name: string;
-  description: string;
-  tags: string;
-};
+type Props = {
+  id: number
+}
 
-const Filter: React.FC = () => {
-  const [inputs, setInputs] = useState<Inputs>({
+const Filter: React.FC<Props> = ({id}) => {
+  console.log(id);
+  const [inputs, setInputs] = useState<FilterInputs>({
     name: "",
     description: "",
     tags: ""

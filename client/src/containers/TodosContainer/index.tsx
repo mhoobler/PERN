@@ -1,9 +1,17 @@
 import React from 'react';
 
-const TodosContainer: React.FC = () => {
+import Todo from '../../components/Todo'
+
+type Props = {
+  todos: TodoType[]
+}
+
+const TodosContainer: React.FC<Props> = ({todos}) => {
   return (
     <div className='todos-container'>
-      TodosContainer
+      {todos.map( (e: TodoType, i: number) => {
+        return <Todo todo={e} key={e.todo_id}/>
+      })}
     </div>
   );
 }
