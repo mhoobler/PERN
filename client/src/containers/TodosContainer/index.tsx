@@ -9,7 +9,8 @@ type Props = {
 };
 
 const TodosContainer: React.FC<Props> = ({ filter }) => {
-  const { todos, isLoading } = useGetTodos(
+  //Add Loading state later
+  const { todos } = useGetTodos(
     filter.name,
     filter.description,
     filter.tags
