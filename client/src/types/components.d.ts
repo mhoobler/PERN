@@ -20,3 +20,9 @@ interface FilterObject extends FilterInputs {
   id: number;
   tags: string[]
 }
+
+type FilterQuery = {
+  name: string;
+  description: string;
+  tags: string[]
+}

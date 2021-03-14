@@ -15,6 +15,7 @@ const apiRoutes = (app: Express) => {
 
   app.get("/_todos", async (req: Req, res: Res) => {
     try {
+      console.log(req.query);
       const todos = await db.query("SELECT * FROM todo");
 
       res.send(todos);

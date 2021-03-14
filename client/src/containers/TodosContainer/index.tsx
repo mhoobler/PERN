@@ -2,11 +2,14 @@ import React from 'react';
 
 import Todo from '../../components/Todo'
 
+import useGetTodos from '../../utils/useGetTodos';
+
 type Props = {
-  todos: TodoType[]
+  filter: FilterObject
 }
 
-const TodosContainer: React.FC<Props> = ({todos}) => {
+const TodosContainer: React.FC<Props> = ({filter}) => {
+  const {todos, isLoading} = useGetTodos(filter.name, filter.description, filter.tags);
   return (
     <div className='todos-container'>
       {todos.map( (e: TodoType, i: number) => {

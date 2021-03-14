@@ -5,7 +5,6 @@ type Props = {
 }
 
 const Filter: React.FC<Props> = ({id}) => {
-  console.log(id);
   const [inputs, setInputs] = useState<FilterInputs>({
     name: "",
     description: "",

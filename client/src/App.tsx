@@ -10,14 +10,15 @@ import {AppContext} from './contexts/AppContext';
 const App: React.FC = () => {
   const {state} = useContext(AppContext);
 
-  const {filters, todoContainers} = state;
+  const {filters} = state;
+  const keys = Object.keys(filters);
 
   return (
     <div className="App">
       <InputTodo />
       <FiltersContainer filters={filters} />
-      {todoContainers.map( (e: TodoType[], i: number) => {
-        return <TodosContainer todos={e} key={i} />
+      {keys.map( (e: string) => {
+        return <TodosContainer filter={filters[parseInt(e)]} key={e} />
       })}
     </div>
   );

@@ -9,8 +9,7 @@ const initState = {
       description: '',
       tags: []
     }
-  },
-  todoContainers: []
+  }
 };
 
 //Context factory?
@@ -24,7 +23,6 @@ const AppContext = createContext<{
 const {Provider} = AppContext;
 
 const AppProvider: FC = ({ children }) => {
-
   const [state, dispatch] = useReducer(AppReducer, initState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>
